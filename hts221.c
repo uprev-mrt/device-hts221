@@ -111,7 +111,7 @@ mrt_status_t hts_read_humidity(hts221_t* dev, int* hum)
     regdev_read_reg(&dev->mRegDev, HTS_HUMIDITY_OUT, &raw_adc );
 
     //Use calibration coefs to interpolate data to RH%
-    tmp_f = ((float)(raw_adc - dev->mCalData.H0_T0_OUT) * (float)(dev->mCalData.H1_rH - dev->mCalData.H0_rH) / (float)(dev->mCalData.H0_T0_OUT - dev->mCalData.H1_T0_OUT))  +  dev->mCalData.H0_rH;
+    tmp_f = ((float)(raw_adc - dev->mCalData.H0_T0_OUT) * (float)(dev->mCalData.H1_rH - dev->mCalData.H0_rH) / (float)(dev->mCalData.H1_T0_OUT - dev->mCalData.H0_T0_OUT))  +  dev->mCalData.H0_rH;
 
     *hum = tmp_f * 100;
     return MRT_STATUS_OK;
