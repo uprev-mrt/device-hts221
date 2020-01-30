@@ -7,9 +7,14 @@
  * 
  */
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #include <stdint.h>
 #include <stdbool.h>
 #include "Devices/RegDevice/register_device.h"
+
 
 #define HTS221_I2C_ADDRESS 0xBE
 #define HTS221_ID 0xBC
@@ -41,3 +46,7 @@ mrt_status_t hts_init_common(hts221_t* dev);
 mrt_status_t hts_test(hts221_t* dev);
 mrt_status_t hts_read_humidity(hts221_t* dev, int* hum);
 mrt_status_t hts_read_temp(hts221_t* dev, int* temp);
+
+#ifdef __cplusplus
+}
+#endif
