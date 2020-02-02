@@ -82,7 +82,7 @@ mrt_status_t hts_init_i2c(hts221_t* dev, mrt_i2c_handle_t i2c)
 {
     mrt_status_t status;
 
-    status = init_i2c_register_device(&dev->mRegDev, i2c, HTS_I2C_ADDRESS, 1 );
+    status = init_i2c_register_device(&dev->mRegDev, i2c, HTS221_I2C_ADDRESS, HTS221_REG_ADDR_SIZE );
 
     hts_init(dev);
 

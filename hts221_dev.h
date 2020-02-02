@@ -5,7 +5,8 @@
   * 
   */
 
-#define HTS_I2C_ADDRESS 0xBE
+#define HTS221_I2C_ADDRESS 0xBE
+#define HTS221_REG_ADDR_SIZE 1
 
 
 /*******************************************************************************
@@ -32,25 +33,20 @@
 
 
 /*******************************************************************************
-  Flags                                                                              
-*******************************************************************************/
-
-/* STATUS Register Flags */
-#define HTS_STATUS_TEMP_READY                       0x01
-#define HTS_STATUS_HUM_READY                       0x02
-
-
-/*******************************************************************************
-  Flags Values                                                                              
+  Fields                                                                              
 *******************************************************************************/
 
 /* CTRL1 Register Fields */
-  /* CTRL1 -> ODR */
-  #define HTS_CTRL1_ODR_MASK        0x07
-  #define HTS_CTRL1_ODR_ONESHOT      0x00
-  #define HTS_CTRL1_ODR_1HZ      0x01
-  #define HTS_CTRL1_ODR_7HZ      0x02
-  #define HTS_CTRL1_ODR_12_5HZ      0x03
+    /* CTRL1 -> ODR */
+    #define HTS_CTRL1_ODR_MASK        0x07
+    #define HTS_CTRL1_ODR_ONESHOT      0x00
+    #define HTS_CTRL1_ODR_1HZ      0x01
+    #define HTS_CTRL1_ODR_7HZ      0x02
+    #define HTS_CTRL1_ODR_12_5HZ      0x03
+/* STATUS Register Fields */
+    /* STATUS -> Flags */
+    #define HTS_STATUS_TEMP_READY                       0x01
+    #define HTS_STATUS_HUM_READY                       0x02
 
 /*******************************************************************************
   Default Values                                                                              
