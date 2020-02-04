@@ -36,13 +36,30 @@
   Fields                                                                              
 *******************************************************************************/
 
+/* AV_CONF Register Fields */
+    /* AV_CONF -> AVGH */
+    #define HTS_AV_CONF_AVGH_MASK        0x07
+    /* AV_CONF -> AVGT */
+    #define HTS_AV_CONF_AVGT_MASK        0x38
 /* CTRL1 Register Fields */
+    /* CTRL1 -> Flags */
+    #define HTS_CTRL1_PD                       0x80
+    #define HTS_CTRL1_BDU                       0x04
     /* CTRL1 -> ODR */
-    #define HTS_CTRL1_ODR_MASK        0x07
+    #define HTS_CTRL1_ODR_MASK        0x03
     #define HTS_CTRL1_ODR_ONESHOT      0x00
+    
     #define HTS_CTRL1_ODR_1HZ      0x01
+    
     #define HTS_CTRL1_ODR_7HZ      0x02
+    
     #define HTS_CTRL1_ODR_12_5HZ      0x03
+    
+/* CTRL2 Register Fields */
+    /* CTRL2 -> Flags */
+    #define HTS_CTRL2_BOOT                       0x80
+    #define HTS_CTRL2_HEATER                       0x02
+    #define HTS_CTRL2_ONESHOT                       0x01
 /* STATUS Register Fields */
     /* STATUS -> Flags */
     #define HTS_STATUS_TEMP_READY                       0x01
@@ -53,6 +70,11 @@
 *******************************************************************************/
 
 #define HTS_WHO_AM_I_DEFAULT  0xBC
+#define HTS_AV_CONF_DEFAULT  0x1B
+#define HTS_CTRL1_DEFAULT  0x00
+#define HTS_CTRL2_DEFAULT  0x00
+#define HTS_CTRL3_DEFAULT  0x00
+#define HTS_STATUS_DEFAULT  0x00
 
 /*******************************************************************************
   Flag Set/Clear/Check                                                                             
@@ -89,6 +111,18 @@
 *******************************************************************************/
 
 /**
+ * @brief reads the AVGH field from the device 
+ * @param dev ptr to HTS221 device
+ */
+#define hts_get_av_conf_avgh(dev) regdev_read_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGH_MASK )
+
+/**
+ * @brief reads the AVGT field from the device 
+ * @param dev ptr to HTS221 device
+ */
+#define hts_get_av_conf_avgt(dev) regdev_read_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGT_MASK )
+
+/**
  * @brief reads the ODR field from the device 
  * @param dev ptr to HTS221 device
  * @return HTS_CTRL1_ODR_ONESHOT readings must be requested
@@ -99,9 +133,22 @@
 #define hts_get_ctrl1_odr(dev) regdev_read_field(dev->mRegDev, &(dev)->mCtrl1, HTS_CTRL1_ODR_MASK )
 
 
+
 /*******************************************************************************
   Field Setters                                                                              
 *******************************************************************************/
+
+/**
+ * @brief writes the AVGH field from the device 
+ * @param dev ptr to HTS221 device
+ */
+#define hts_set_av_conf_avgh(dev) regdev_write_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGH_MASK )
+
+/**
+ * @brief writes the AVGT field from the device 
+ * @param dev ptr to HTS221 device
+ */
+#define hts_set_av_conf_avgt(dev) regdev_write_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGT_MASK )
 
 /**
  * @brief writes the ODR field from the device 
@@ -112,3 +159,4 @@
  * @option HTS_CTRL1_ODR_12_5HZ 12.5 hz sampling
  */
 #define hts_set_ctrl1_odr(dev) regdev_write_field(dev->mRegDev, &(dev)->mCtrl1, HTS_CTRL1_ODR_MASK )
+
