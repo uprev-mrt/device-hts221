@@ -65,3 +65,11 @@ fields:
     - HEATER: {mask: 0x02, desc: Enable intenal heating element}
     - ONESHOT: {mask: 0x01, desc: Start conversion for new data}
 
+configs:
+  - init: 
+      desc: initial configuration
+      registers:
+        - CTRL1: { ODR: 1Hz, BDU: 1}
+        - CTRL2: 0x66
+
+
