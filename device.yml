@@ -66,10 +66,10 @@ fields:
     - ONESHOT: {mask: 0x01, desc: Start conversion for new data}
 
 configs:
-  - init: 
-      desc: initial configuration
+  - auto_1hz: 
+      desc: Sets device to update every second
       registers:
-        - CTRL1: { ODR: 1Hz, BDU: 1}
+        - CTRL1: { ODR: 1HZ, BDU: 1}
         - CTRL2: 0x66
 
 

@@ -4,6 +4,7 @@
   * @link [https://github.com/uprev-mrt/mrtutils/wiki/mrt-device]
   * @brief Device driver for HTS221 device
   *
+  *
   */
 
 #ifdef __cplusplus

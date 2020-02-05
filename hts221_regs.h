@@ -164,3 +164,16 @@
  */
 #define hts_set_ctrl1_odr(dev) regdev_write_field(dev->mRegDev, &(dev)->mCtrl1, HTS_CTRL1_ODR_MASK )
 
+
+/*******************************************************************************
+  Configs                                                                            
+*******************************************************************************/
+
+/**
+ * @brief Sets device to update every second
+ * @param dev ptr to HTS221 device
+ */
+#define hts_load_config_auto_1hz(dev) \
+hts_write_reg( (dev), &(dev)->mCtrl1, 0x05);     /* ODR: 1HZ , BDU: 1 */          \
+hts_write_reg( (dev), &(dev)->mCtrl2, 0x66);                                      \
+
