@@ -53,6 +53,7 @@ fields:
     - BDU: {mask: 0x04, desc: Block Data update. Prevents update until LSB of data is read}
     - ODR:
         mask: 0x03
+        desc: Selects the Output rate for the sensor data
         vals:
           - ONESHOT: { val: 0, desc: readings must be requested}
           - 1HZ: { val: 1, desc: 1 hz sampling}
