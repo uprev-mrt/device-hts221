@@ -19,782 +19,278 @@
 
 <br/>
 
-
+<div class="regmap" align="center">
 <hr class="section">
 <h2 class="right"> Register Map</h2>
-<hr class="thick">
-
-<table class="fields">
-    <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Type</th>
-        <th>Access</th>
-        <th>Default</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td><a href="#register_who_am_i_detail">WHO_AM_I</a></td>
-        <td>0x0F</td>
-        <td>uint8_t</td>
-        <td>R</td>
-        <td>0xBC</td>
-        <td>Id Register</td>
-    </tr>
-    <tr>
-        <td><a href="#register_av_conf_detail">AV_CONF</a></td>
-        <td>0x10</td>
-        <td>uint8_t</td>
-        <td>RW</td>
-        <td>0x1B</td>
-        <td>Humidity and temperature resolution mode</td>
-    </tr>
-    <tr>
-        <td><a href="#register_ctrl1_detail">CTRL1</a></td>
-        <td>0x20</td>
-        <td>uint8_t</td>
-        <td>RW</td>
-        <td>0x00</td>
-        <td>Control register 1</td>
-    </tr>
-    <tr>
-        <td><a href="#register_ctrl2_detail">CTRL2</a></td>
-        <td>0x21</td>
-        <td>uint8_t</td>
-        <td>RW</td>
-        <td>0x00</td>
-        <td>Control register 2</td>
-    </tr>
-    <tr>
-        <td><a href="#register_ctrl3_detail">CTRL3</a></td>
-        <td>0x22</td>
-        <td>uint8_t</td>
-        <td>RW</td>
-        <td>0x00</td>
-        <td>Control register 3</td>
-    </tr>
-    <tr>
-        <td><a href="#register_status_detail">STATUS</a></td>
-        <td>0x27</td>
-        <td>uint8_t</td>
-        <td>R</td>
-        <td>0x00</td>
-        <td>Status register</td>
-    </tr>
-    <tr>
-        <td><a href="#register_humidity_out_detail">HUMIDITY_OUT</a></td>
-        <td>0x28</td>
-        <td>int16_t</td>
-        <td>R</td>
-        <td>0x0000</td>
-        <td>Relative humidity data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_temp_out_detail">TEMP_OUT</a></td>
-        <td>0x2A</td>
-        <td>int16_t</td>
-        <td>R</td>
-        <td>0x0000</td>
-        <td>Temperature data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_h0_rh_x2_detail">H0_rH_x2</a></td>
-        <td>0x30</td>
-        <td>uint8_t</td>
-        <td>R</td>
-        <td>0x00</td>
-        <td>Calibration data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_h1_rh_x2_detail">H1_rH_x2</a></td>
-        <td>0x31</td>
-        <td>uint8_t</td>
-        <td>R</td>
-        <td>0x00</td>
-        <td>Calibration data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_t0_degc_x8_detail">T0_DEGC_x8</a></td>
-        <td>0x32</td>
-        <td>uint8_t</td>
-        <td>R</td>
-        <td>0x00</td>
-        <td>Calibration data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_t1_degc_x8_detail">T1_DEGC_x8</a></td>
-        <td>0x33</td>
-        <td>uint8_t</td>
-        <td>R</td>
-        <td>0x00</td>
-        <td>Calibration data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_t1t0_msb_detail">T1T0_MSB</a></td>
-        <td>0x35</td>
-        <td>uint8_t</td>
-        <td>R</td>
-        <td>0x00</td>
-        <td>Calibration data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_h0_t0_out_detail">H0_T0_OUT</a></td>
-        <td>0x36</td>
-        <td>int16_t</td>
-        <td>R</td>
-        <td>0x0000</td>
-        <td>Calibration data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_h1_t0_out_detail">H1_T0_OUT</a></td>
-        <td>0x3A</td>
-        <td>int16_t</td>
-        <td>R</td>
-        <td>0x0000</td>
-        <td>Calibration data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_t0_out_detail">T0_OUT</a></td>
-        <td>0x3C</td>
-        <td>int16_t</td>
-        <td>R</td>
-        <td>0x0000</td>
-        <td>Calibration data</td>
-    </tr>
-    <tr>
-        <td><a href="#register_t1_out_detail">T1_OUT</a></td>
-        <td>0x3E</td>
-        <td>int16_t</td>
-        <td>R</td>
-        <td>0x0000</td>
-        <td>Calibration data</td>
-    </tr>
-
-</table>
-
-
-
-<hr class="section">
-<h2 class="right"> Registers</h2>
+<div align="right" width="100%">
+  Configuration:
+  <select id="cfgSelect" onchange="setConfig(this)"> 
+    <option value="none">None</option>
+  </select>
+</div>
 <hr class="thick">
 
 
+  <table class="fields" id="regMap" width="95%">
 
-<div id="register_who_am_i_detail" class="packet">
-<h2>WHO_AM_I </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x0F]</b></li>
-    <li class="note">  Default: <b>[0xBC]</b></li>
-</ul>
+  </table>
+</div>
 
-<p>Id Register</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
-  </tr>
-  <tr>
-    <th class="smallCell">Default</th>
-      <td class="one" >1</td>
-      <td class="zero" >0</td>
-      <td class="one" >1</td>
-      <td class="one" >1</td>
-      <td class="one" >1</td>
-      <td class="one" >1</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-   </tr>
-</table>
-<div id="register_av_conf_detail" class="packet">
-<h2>AV_CONF </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x10]</b></li>
-    <li class="note">  Default: <b>[0x1B]</b></li>
-</ul>
-
-<p>Humidity and temperature resolution mode</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="2"></td>
-<td class="field" colspan="3">AVGT</td>
-<td class="field" colspan="3">AVGH</td>
-
-  </tr>
-  <tr>
-    <th class="smallCell">Default</th>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="one" >1</td>
-      <td class="one" >1</td>
-      <td class="zero" >0</td>
-      <td class="one" >1</td>
-      <td class="one" >1</td>
-   </tr>
-</table>
-<div id="register_ctrl1_detail" class="packet">
-<h2>CTRL1 </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x20]</b></li>
-    <li class="note">  Default: <b>[0x00]</b></li>
-</ul>
-
-<p>Control register 1</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="field" colspan="1">PD</td>
-<td class="empty" colspan="4"></td>
-<td class="field" colspan="1">BDU</td>
-<td class="field" colspan="2">ODR</td>
-
-  </tr>
-  <tr>
-    <th class="smallCell">Default</th>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-   </tr>
-</table>
-<div id="register_ctrl2_detail" class="packet">
-<h2>CTRL2 </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x21]</b></li>
-    <li class="note">  Default: <b>[0x00]</b></li>
-</ul>
-
-<p>Control register 2</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="field" colspan="1">BOOT</td>
-<td class="empty" colspan="5"></td>
-<td class="field" colspan="1">HEATER</td>
-<td class="field" colspan="1">ONESHOT</td>
-
-  </tr>
-  <tr>
-    <th class="smallCell">Default</th>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-   </tr>
-</table>
-<div id="register_ctrl3_detail" class="packet">
-<h2>CTRL3 </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x22]</b></li>
-    <li class="note">  Default: <b>[0x00]</b></li>
-</ul>
-
-<p>Control register 3</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
-  </tr>
-  <tr>
-    <th class="smallCell">Default</th>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-   </tr>
-</table>
-<div id="register_status_detail" class="packet">
-<h2>STATUS </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x27]</b></li>
-    <li class="note">  Default: <b>[0x00]</b></li>
-</ul>
-
-<p>Status register</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="6"></td>
-<td class="field" colspan="1">HUM_READY</td>
-<td class="field" colspan="1">TEMP_READY</td>
-
-  </tr>
-  <tr>
-    <th class="smallCell">Default</th>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-      <td class="zero" >0</td>
-   </tr>
-</table>
-<div id="register_humidity_out_detail" class="packet">
-<h2>HUMIDITY_OUT </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x28]</b></li>
-</ul>
-
-<p>Relative humidity data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 15</th>
-    <th> 14</th>
-    <th> 13</th>
-    <th> 12</th>
-    <th> 11</th>
-    <th> 10</th>
-    <th> 9</th>
-    <th> 8</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
-  </tr>
-</table>
-<div id="register_temp_out_detail" class="packet">
-<h2>TEMP_OUT </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x2A]</b></li>
-</ul>
-
-<p>Temperature data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 15</th>
-    <th> 14</th>
-    <th> 13</th>
-    <th> 12</th>
-    <th> 11</th>
-    <th> 10</th>
-    <th> 9</th>
-    <th> 8</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
-  </tr>
-</table>
-<div id="register_h0_rh_x2_detail" class="packet">
-<h2>H0_rH_x2 </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x30]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
-  </tr>
-</table>
-<div id="register_h1_rh_x2_detail" class="packet">
-<h2>H1_rH_x2 </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x31]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
-  </tr>
-</table>
-<div id="register_t0_degc_x8_detail" class="packet">
-<h2>T0_DEGC_x8 </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x32]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
-  </tr>
-</table>
-<div id="register_t1_degc_x8_detail" class="packet">
-<h2>T1_DEGC_x8 </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x33]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
-  </tr>
-</table>
-<div id="register_t1t0_msb_detail" class="packet">
-<h2>T1T0_MSB </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x35]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
-  </tr>
-</table>
-<div id="register_h0_t0_out_detail" class="packet">
-<h2>H0_T0_OUT </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x36]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 15</th>
-    <th> 14</th>
-    <th> 13</th>
-    <th> 12</th>
-    <th> 11</th>
-    <th> 10</th>
-    <th> 9</th>
-    <th> 8</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
-  </tr>
-</table>
-<div id="register_h1_t0_out_detail" class="packet">
-<h2>H1_T0_OUT </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x3A]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 15</th>
-    <th> 14</th>
-    <th> 13</th>
-    <th> 12</th>
-    <th> 11</th>
-    <th> 10</th>
-    <th> 9</th>
-    <th> 8</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
-  </tr>
-</table>
-<div id="register_t0_out_detail" class="packet">
-<h2>T0_OUT </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x3C]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 15</th>
-    <th> 14</th>
-    <th> 13</th>
-    <th> 12</th>
-    <th> 11</th>
-    <th> 10</th>
-    <th> 9</th>
-    <th> 8</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
-  </tr>
-</table>
-<div id="register_t1_out_detail" class="packet">
-<h2>T1_OUT </h2>
-<hr/>
-<ul>
-    <li class="note">  Address: <b>[0x3E]</b></li>
-</ul>
-
-<p>Calibration data</p>
-
-
-<table class="fields" width="80%">
-  <tr>
-    <th class="smallCell">bit</th>
-    <th> 15</th>
-    <th> 14</th>
-    <th> 13</th>
-    <th> 12</th>
-    <th> 11</th>
-    <th> 10</th>
-    <th> 9</th>
-    <th> 8</th>
-    <th> 7</th>
-    <th> 6</th>
-    <th> 5</th>
-    <th> 4</th>
-    <th> 3</th>
-    <th> 2</th>
-    <th> 1</th>
-    <th> 0</th>
-  </tr>
-  <tr>
-    <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
-  </tr>
-</table>
 
 </div>
+<script>
+  
+  var device = {"name": "HTS221", "regs": {"WHO_AM_I": {"name": "WHO_AM_I", "addr": 15, "type": "uint8_t", "size": 8, "perm": "R", "default": 188, "hasDefault": true, "desc": "Id Register", "fields": {}}, "AV_CONF": {"name": "AV_CONF", "addr": 16, "type": "uint8_t", "size": 8, "perm": "RW", "default": 27, "hasDefault": true, "desc": "Humidity and temperature resolution mode", "fields": {"AVGH": {"mask": 7, "size": 3, "offset": 0, "desc": "Selects the number of Humidity samples to average for data output", "vals": [{"name": "4", "val": 0, "desc": "4 samples"}, {"name": "8", "val": 1, "desc": "8 samples"}, {"name": "16", "val": 2, "desc": "16 samples"}, {"name": "32", "val": 3, "desc": "32 samples"}, {"name": "64", "val": 4, "desc": "64 samples"}, {"name": "128", "val": 5, "desc": "128 samples"}, {"name": "256", "val": 6, "desc": "256 samples"}, {"name": "512", "val": 7, "desc": "512 samples"}]}, "AVGT": {"mask": 56, "size": 3, "offset": 3, "desc": "Selects the number of Temperature samples to average for data output", "vals": [{"name": "2", "val": 0, "desc": "2 samples"}, {"name": "4", "val": 1, "desc": "4 samples"}, {"name": "8", "val": 2, "desc": "8 samples"}, {"name": "16", "val": 3, "desc": "16 samples"}, {"name": "32", "val": 4, "desc": "32 samples"}, {"name": "64", "val": 5, "desc": "64 samples"}, {"name": "128", "val": 6, "desc": "128 samples"}, {"name": "256", "val": 7, "desc": "256 samples"}]}}}, "CTRL1": {"name": "CTRL1", "addr": 32, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 1", "fields": {"PD": {"mask": 128, "size": 1, "offset": 7, "desc": "power down mode", "vals": []}, "BDU": {"mask": 4, "size": 1, "offset": 2, "desc": "Block Data update. Prevents update until LSB of data is read", "vals": []}, "ODR": {"mask": 3, "size": 2, "offset": 0, "desc": "Selects the Output rate for the sensor data", "vals": [{"name": "ONESHOT", "val": 0, "desc": "readings must be requested"}, {"name": "1HZ", "val": 1, "desc": "1 hz sampling"}, {"name": "7HZ", "val": 2, "desc": "7 hz sampling"}, {"name": "12_5HZ", "val": 3, "desc": "12.5 hz sampling"}]}}}, "CTRL2": {"name": "CTRL2", "addr": 33, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 2", "fields": {"BOOT": {"mask": 128, "size": 1, "offset": 7, "desc": "Reboot memory content", "vals": []}, "HEATER": {"mask": 2, "size": 1, "offset": 1, "desc": "Enable intenal heating element", "vals": []}, "ONESHOT": {"mask": 1, "size": 1, "offset": 0, "desc": "Start conversion for new data", "vals": []}}}, "CTRL3": {"name": "CTRL3", "addr": 34, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 3", "fields": {}}, "STATUS": {"name": "STATUS", "addr": 39, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": true, "desc": "Status register", "fields": {"TEMP_READY": {"mask": 1, "size": 1, "offset": 0, "desc": "indicates that a temperature reading is ready", "vals": []}, "HUM_READY": {"mask": 2, "size": 1, "offset": 1, "desc": "indicates that a humidity reading is ready", "vals": []}}}, "HUMIDITY_OUT": {"name": "HUMIDITY_OUT", "addr": 40, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Relative humidity data", "fields": {"HUM_OUT": {"mask": 65535, "size": 16, "offset": 0, "desc": "Current ADC reading for humidity sensor", "vals": []}}}, "TEMP_OUT": {"name": "TEMP_OUT", "addr": 42, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Temperature data", "fields": {"TEMP_OUT": {"mask": 65535, "size": 16, "offset": 0, "desc": "Current ADC reading for temperature sensor", "vals": []}}}, "H0_rH_x2": {"name": "H0_rH_x2", "addr": 48, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H1_rH_x2": {"name": "H1_rH_x2", "addr": 49, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T0_DEGC_x8": {"name": "T0_DEGC_x8", "addr": 50, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1_DEGC_x8": {"name": "T1_DEGC_x8", "addr": 51, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1T0_MSB": {"name": "T1T0_MSB", "addr": 53, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H0_T0_OUT": {"name": "H0_T0_OUT", "addr": 54, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H1_T0_OUT": {"name": "H1_T0_OUT", "addr": 58, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T0_OUT": {"name": "T0_OUT", "addr": 60, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1_OUT": {"name": "T1_OUT", "addr": 62, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}}, "configs": {"Default": {"WHO_AM_I": 188, "AV_CONF": 27, "CTRL1": 0, "CTRL2": 0, "CTRL3": 0, "STATUS": 0}, "auto_1hz": {"CTRL1": 5, "CTRL2": 102}}, "currentVals": {"WHO_AM_I": 188, "AV_CONF": 27, "CTRL1": 0, "CTRL2": 0, "CTRL3": 0, "STATUS": 0}, "smallestReg": 8, "largestReg": 16};
+
+  var sel =  document.getElementById("cfgSelect");
+
+  for(var k in device.configs){
+    var option = document.createElement("option");
+    option.text = k;
+    option.Value = k;
+    sel.add(option);
+  }
+
+  function checkBit(reg, bit)
+{
+  let resp = {
+    field: {},
+    len: 0,
+    cont : false
+  };
+
+  let next = 1000;
+  bit -=1
+  for(let name in reg.fields)
+  {
+    let field = reg.fields[name];
+    let start = field.offset + (field.size -1);
+    let end = field.offset;
+
+    if(bit == start) //we are at the start of the field 
+    {
+      field.name = name;
+      resp.field = field;
+      resp.len = field.size;
+      resp.cont = false;
+      return resp;
+    }
+    else if( (bit < start) && (bit >= end)) //we are mid-field
+    {
+      field.name = name;
+      resp.field = field;
+      resp.len = field.size - (bit - end);
+      resp.cont = true;
+      return resp;
+    }
+
+    if( (bit > start) && ((bit - start ) < next))
+      next = bit - start;
+  }
+
+  resp.len = next;
+  resp.field = null;
+  return resp;
+}
+
+
+function buildRegMap(tableId, dev)
+{
+
+  let table = document.getElementById(tableId);
+
+  let head = table.insertRow();
+
+  let headcell = document.createElement("th");
+  headcell.textContent = "Register";
+  headcell.setAttribute("width", "12%");
+  head.appendChild(headcell);
+  headcell = document.createElement("th");
+  headcell.textContent ="RW";
+  headcell.setAttribute("width", "3%");
+  head.appendChild(headcell);
+  let cellWidth = 85 / dev.smallestReg;
+  for(var n = dev.smallestReg; n > 0; n--)
+  {
+    headcell = document.createElement("th");
+    headcell.textContent = n.toString();
+    headcell.setAttribute("width", cellWidth.toString() + "%");
+    head.appendChild(headcell);
+  }
+
+  for(let name in dev.regs)
+  {
+    let reg = dev.regs[name];
+    let rowSpan = reg.size / dev.smallestReg;
+    let row = table.insertRow();
+    let bit = reg.size;
+
+    let head = document.createElement("th");
+    let access = document.createElement("th");
+    head.textContent = name;
+    head.setAttribute("rowspan",rowSpan);
+    access.textContent =reg.perm;
+    access.setAttribute("rowspan",rowSpan);
+
+    row.appendChild(head);
+    row.appendChild(access);
+
+    let count = 0;
+
+    while(bit > 0)
+    {
+      var i = dev.smallestReg;
+      while( i > 0)
+      {
+        let resp = checkBit(reg, bit);
+        if(resp.len > (i))
+          resp.len = i;
+
+        let cell = document.createElement("td");
+
+        if(resp.field != null)
+        {
+          
+          cell.classList.add("bit");
+          cell.setAttribute("id", reg.name + "_bit_"+ (bit -1).toString());
+
+          let fieldDiv = document.createElement("div");
+          fieldDiv.classList.add("field");
+          fieldDiv.setAttribute("style", "margin-right:-" + ((resp.len -1) * 100).toString() +"%;");
+
+          let fieldAnch = document.createElement("a");
+
+          if( !resp.cont) //this is a new field starting
+          {
+            cell.classList.add("first");
+            fieldAnch.textContent = resp.field.name 
+            if(resp.field.size > resp.len)
+              fieldAnch.textContent +="[" + (resp.field.size -1).toString() +":" + (resp.field.size - resp.len).toString() +"]";
+          }
+          else 
+          {
+            fieldAnch.textContent = resp.field.name 
+            if(resp.field.size > resp.len)
+              fieldAnch.textContent += "[" + ( resp.len -1).toString() +":" + (0).toString() +"]";
+          }
+
+          fieldAnch.setAttribute("data-tt",'');
+          fieldAnch.setAttribute("data-tt-lbl", resp.field.desc);
+          let valStr ="";
+          resp.field.vals.forEach(val => {
+            valStr+= "b"+val.val.toString(2).padStart(resp.field.size,"0") + " : " + val.desc +"\n";
+          });
+          fieldAnch.setAttribute("data-tt-msg", valStr);
+
+          fieldDiv.appendChild(fieldAnch);
+          cell.appendChild(fieldDiv);
+          row.appendChild(cell);
+
+          for(var a =1 ; a < (resp.len); a++)
+          {
+            cell = document.createElement("td");
+            cell.classList.add("bit");
+            cell.setAttribute("id", name + "_bit_"+ (bit -(a+1)).toString());
+            row.appendChild(cell);
+          }
+
+        }
+        else
+        {
+          cell.classList.add("empty");
+          cell.setAttribute("colspan", resp.len);
+          cell.textContent=".";
+          row.appendChild(cell);
+        }
+
+        i -= resp.len;
+        bit-= resp.len;
+      }
+      if(bit > 0 )
+        row = table.insertRow();
+    }
+  }
+}
+  
+function showSettings(){
+    for(var k in device.currentVals){
+      var v = device.currentVals[k];
+      var bit = device.largestReg - 1; //0 based
+      var mask =0;
+      while(bit >= 0)
+      {
+        mask = (v >> bit) & 1;
+        var element = document.getElementById(k + "_bit_" + bit);
+        
+        if(element)
+        {
+          if(mask)
+          {
+            element.classList.add("one");
+            element.classList.remove("zero");
+          }
+          else
+          {
+            element.classList.remove("one");
+            element.classList.add("zero");
+          }
+
+        }
+
+        bit--;
+      }
+
+    }
+  }
+
+
+  function loadConfig(config)
+  {
+    if(config == 'none')
+    {
+      var bits = document.getElementsByClassName("bit");
+      for(var i = 0; i < bits.length; i++)
+      {
+        bits[i].classList.remove("one");
+        bits[i].classList.remove("zero");
+      }
+
+    }
+    else
+    {
+      //first load defaults 
+      for(var k in device.configs['Default'])
+      {
+        device.currentVals[k] = device.configs['Default'][k];
+      }
+
+      for(var k in device.configs[config])
+      {
+        device.currentVals[k] = device.configs[config][k];
+      }
+
+      showSettings();
+    }
+
+  }
+
+  function setConfig(selectObj)
+  {
+    var value = selectObj.value;
+    loadConfig(value);
+  }
+
+
+  buildRegMap("regMap", device);
+
+</script>
 </body>
 <style>
 table.fixed { table-layout:auto; }
 table.fixed td { overflow:visible; }
 
 table.fields{
-  table-layout:auto;
+  table-layout:fixed;
 }
 
 body {
@@ -809,9 +305,8 @@ body {
 }
 
 @media print {
-  .packet {
+  .regmap {
     page-break-inside: avoid;
-    padding-top: 4px;
   }
   .content{
     width: 100%;
@@ -823,12 +318,13 @@ body {
 
 @media screen {
   .content{
-    width: 50%;
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
     padding-top: 4px;
     box-shadow: 5px 10px #AAA;
+    padding-bottom: 50px;
   }
 
   body{
@@ -863,38 +359,59 @@ hr {
 
 table {
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 td {
   border: 1px solid #000000;
   text-align: left;
-  padding: 5px;
+  padding-top: 6px;
   vertical-align: top;
+  font-size: 9pt;
+  width: 1px;
+  white-space: nowrap;
 }
 
-.smallCell
-{
-    width: 1px;
-    white-space: nowrap;
+.field{
+  text-align: center;
+  padding: 0px;
+  font-weight: bold; 
+}
+
+
+.bit{
+  border-right: 1px dotted #999;
+  border-left: 1px dotted #999;
+  overflow:visible;
+}
+
+.bit.first{
+  border-left: 1px solid black;
+}
+
+td:last-child{
+  border-right: 1px solid black;
+}
+td:first-child{
+  border-left: 1px solid black;
+}
+
+
+td.one{
+  background-color: #acdbac;
 }
 
 td.zero{
-  background-color: #ce927e;
+  background-color: #e2af9e;
 }
 
-td.one{
-  background-color: #98cd98;
-}
 
 td.empty{
   background-color: #cccccc;
+  color: #cccccc;
 }
 
-td.field{
-  width: 1px;
-  white-space: nowrap;
-  text-align: center;
-}
+
 
 .desc{
   font-size: 1.2em;
@@ -905,6 +422,7 @@ th {
   text-align: left;
   padding: 5px;
   background-color: #94b2d3;
+  font-size: 9pt;
 }
 
 li.val{
@@ -960,5 +478,52 @@ table.fixed tr td:last-child{
     width:1%;
     white-space:nowrap;
 }
+
+[data-tt] {
+  position: relative;
+  cursor: help;
+}
+
+[data-tt]:before,
+[data-tt]:after {
+  display: none;
+  position: absolute;
+  top: 0;
+}
+
+[data-tt]:before {
+  border-bottom: .6em solid #09f;
+  border-bottom: .6em solid rgba(0,153,255,0.8);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  content: "";
+  left: 20px;
+  margin-top: 1em;
+}
+
+[data-tt]:after {
+  background-color: #387aa7;
+  background-color: rgb(162, 197, 221);
+  border: 2px solid #000000;
+  border: 2px solid rgba(0, 0, 0, 1);
+  border-radius: 2px;
+  color: #000000;
+  content: attr(data-tt-lbl) ":\A" attr(data-tt-msg);
+  left: 0;
+  width: 300px;
+  overflow: auto;
+  text-align: left;
+  margin-top: 1.5em;
+  padding: 5px 15px;
+  white-space: pre-wrap;
+  z-index: 100;
+}
+
+[data-tt]:hover:after,
+[data-tt]:hover:before {
+  display: block;
+  overflow: auto;
+}
+
 </style>
 </html>

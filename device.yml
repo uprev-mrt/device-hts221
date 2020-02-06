@@ -42,10 +42,29 @@ fields:
     - AVGH: 
         mask: 0x07
         desc: Selects the number of Humidity samples to average for data output
+        vals:
+          - !!str 4   : {val: 0b000, desc: 4 samples}
+          - !!str 8   : {val: 0b001, desc: 8 samples}
+          - !!str 16  : {val: 0b010, desc: 16 samples}
+          - !!str 32  : {val: 0b011, desc: 32 samples}
+          - !!str 64  : {val: 0b100, desc: 64 samples}
+          - !!str 128 : {val: 0b101, desc: 128 samples}
+          - !!str 256 : {val: 0b110, desc: 256 samples}
+          - !!str 512 : {val: 0b111, desc: 512 samples}
     
     - AVGT:
         mask: 0x38
         desc: Selects the number of Temperature samples to average for data output
+        vals:
+          - !!str 2   : {val: 0b000, desc: 2 samples}
+          - !!str 4   : {val: 0b001, desc: 4 samples}
+          - !!str 8   : {val: 0b010, desc: 8 samples}
+          - !!str 16  : {val: 0b011, desc: 16 samples}
+          - !!str 32  : {val: 0b100, desc: 32 samples}
+          - !!str 64  : {val: 0b101, desc: 64 samples}
+          - !!str 128 : {val: 0b110, desc: 128 samples}
+          - !!str 256 : {val: 0b111, desc: 256 samples}
+ 
       
 
   - CTRL1:
@@ -64,6 +83,12 @@ fields:
     - BOOT: {mask: 0x80, desc: Reboot memory content}
     - HEATER: {mask: 0x02, desc: Enable intenal heating element}
     - ONESHOT: {mask: 0x01, desc: Start conversion for new data}
+  
+  - TEMP_OUT: 
+    - TEMP_OUT: {mask: 0xFFFF, desc: Current ADC reading for temperature sensor}
+
+  - HUMIDITY_OUT:
+    - HUM_OUT: {mask: 0xFFFF, desc: Current ADC reading for humidity sensor}
 
 configs:
   - auto_1hz: 

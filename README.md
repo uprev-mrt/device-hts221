@@ -205,8 +205,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
+   
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -245,10 +244,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="2"></td>
-<td class="field" colspan="3">AVGT</td>
-<td class="field" colspan="3">AVGH</td>
-
+   
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -287,11 +283,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="field" colspan="1">PD</td>
-<td class="empty" colspan="4"></td>
-<td class="field" colspan="1">BDU</td>
-<td class="field" colspan="2">ODR</td>
-
+   
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -330,11 +322,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="field" colspan="1">BOOT</td>
-<td class="empty" colspan="5"></td>
-<td class="field" colspan="1">HEATER</td>
-<td class="field" colspan="1">ONESHOT</td>
-
+   
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -373,8 +361,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
+   
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -413,10 +400,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="6"></td>
-<td class="field" colspan="1">HUM_READY</td>
-<td class="field" colspan="1">TEMP_READY</td>
-
+   
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -462,8 +446,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
+   
   </tr>
 </table>
 <div id="register_temp_out_detail" class="packet">
@@ -498,8 +481,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
+   
   </tr>
 </table>
 <div id="register_h0_rh_x2_detail" class="packet">
@@ -526,8 +508,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
+   
   </tr>
 </table>
 <div id="register_h1_rh_x2_detail" class="packet">
@@ -554,8 +535,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
+   
   </tr>
 </table>
 <div id="register_t0_degc_x8_detail" class="packet">
@@ -582,8 +562,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
+   
   </tr>
 </table>
 <div id="register_t1_degc_x8_detail" class="packet">
@@ -610,8 +589,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
+   
   </tr>
 </table>
 <div id="register_t1t0_msb_detail" class="packet">
@@ -638,8 +616,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="9"></td>
-
+   
   </tr>
 </table>
 <div id="register_h0_t0_out_detail" class="packet">
@@ -674,8 +651,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
+   
   </tr>
 </table>
 <div id="register_h1_t0_out_detail" class="packet">
@@ -710,8 +686,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
+   
   </tr>
 </table>
 <div id="register_t0_out_detail" class="packet">
@@ -746,8 +721,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
+   
   </tr>
 </table>
 <div id="register_t1_out_detail" class="packet">
@@ -782,8 +756,7 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   <td class="empty" colspan="17"></td>
-
+   
   </tr>
 </table>
 

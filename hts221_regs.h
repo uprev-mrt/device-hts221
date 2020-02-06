@@ -41,9 +41,25 @@
     /* AV_CONF -> AVGH */
     #define HTS_AV_CONF_AVGH_FIELD_MASK                            0x07 /* Selects the number of Humidity samples to average for data output */
     #define HTS_AV_CONF_AVGH_FIELD_OFFSET                          0x00
+      #define HTS_AV_CONF_AVGH_4                                   0x00 /* 4 samples */
+      #define HTS_AV_CONF_AVGH_8                                   0x01 /* 8 samples */
+      #define HTS_AV_CONF_AVGH_16                                  0x02 /* 16 samples */
+      #define HTS_AV_CONF_AVGH_32                                  0x03 /* 32 samples */
+      #define HTS_AV_CONF_AVGH_64                                  0x04 /* 64 samples */
+      #define HTS_AV_CONF_AVGH_128                                 0x05 /* 128 samples */
+      #define HTS_AV_CONF_AVGH_256                                 0x06 /* 256 samples */
+      #define HTS_AV_CONF_AVGH_512                                 0x07 /* 512 samples */
     /* AV_CONF -> AVGT */
     #define HTS_AV_CONF_AVGT_FIELD_MASK                            0x38 /* Selects the number of Temperature samples to average for data output */
     #define HTS_AV_CONF_AVGT_FIELD_OFFSET                          0x03
+      #define HTS_AV_CONF_AVGT_2                                   0x00 /* 2 samples */
+      #define HTS_AV_CONF_AVGT_4                                   0x01 /* 4 samples */
+      #define HTS_AV_CONF_AVGT_8                                   0x02 /* 8 samples */
+      #define HTS_AV_CONF_AVGT_16                                  0x03 /* 16 samples */
+      #define HTS_AV_CONF_AVGT_32                                  0x04 /* 32 samples */
+      #define HTS_AV_CONF_AVGT_64                                  0x05 /* 64 samples */
+      #define HTS_AV_CONF_AVGT_128                                 0x06 /* 128 samples */
+      #define HTS_AV_CONF_AVGT_256                                 0x07 /* 256 samples */
 
 /* CTRL1 Register Fields */
     /* CTRL1 -> Flags */
@@ -67,6 +83,16 @@
     /* STATUS -> Flags */
     #define HTS_STATUS_TEMP_READY                                  0x01 /* indicates that a temperature reading is ready */
     #define HTS_STATUS_HUM_READY                                   0x02 /* indicates that a humidity reading is ready */
+
+/* HUMIDITY_OUT Register Fields */
+    /* HUMIDITY_OUT -> HUM_OUT */
+    #define HTS_HUMIDITY_OUT_HUM_OUT_FIELD_MASK                    0xFFFF /* Current ADC reading for humidity sensor */
+    #define HTS_HUMIDITY_OUT_HUM_OUT_FIELD_OFFSET                  0x0000
+
+/* TEMP_OUT Register Fields */
+    /* TEMP_OUT -> TEMP_OUT */
+    #define HTS_TEMP_OUT_TEMP_OUT_FIELD_MASK                       0xFFFF /* Current ADC reading for temperature sensor */
+    #define HTS_TEMP_OUT_TEMP_OUT_FIELD_OFFSET                     0x0000
 
 
 /*******************************************************************************
@@ -117,12 +143,28 @@
 /**
  * @brief reads the AVGH field from the device 
  * @param dev ptr to HTS221 device
+ * @return HTS_AV_CONF_AVGH_4 4 samples
+ * @return HTS_AV_CONF_AVGH_8 8 samples
+ * @return HTS_AV_CONF_AVGH_16 16 samples
+ * @return HTS_AV_CONF_AVGH_32 32 samples
+ * @return HTS_AV_CONF_AVGH_64 64 samples
+ * @return HTS_AV_CONF_AVGH_128 128 samples
+ * @return HTS_AV_CONF_AVGH_256 256 samples
+ * @return HTS_AV_CONF_AVGH_512 512 samples
  */
 #define hts_get_av_conf_avgh(dev) regdev_read_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGH_MASK )
 
 /**
  * @brief reads the AVGT field from the device 
  * @param dev ptr to HTS221 device
+ * @return HTS_AV_CONF_AVGT_2 2 samples
+ * @return HTS_AV_CONF_AVGT_4 4 samples
+ * @return HTS_AV_CONF_AVGT_8 8 samples
+ * @return HTS_AV_CONF_AVGT_16 16 samples
+ * @return HTS_AV_CONF_AVGT_32 32 samples
+ * @return HTS_AV_CONF_AVGT_64 64 samples
+ * @return HTS_AV_CONF_AVGT_128 128 samples
+ * @return HTS_AV_CONF_AVGT_256 256 samples
  */
 #define hts_get_av_conf_avgt(dev) regdev_read_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGT_MASK )
 
@@ -136,6 +178,18 @@
  */
 #define hts_get_ctrl1_odr(dev) regdev_read_field(dev->mRegDev, &(dev)->mCtrl1, HTS_CTRL1_ODR_MASK )
 
+/**
+ * @brief reads the HUM_OUT field from the device 
+ * @param dev ptr to HTS221 device
+ */
+#define hts_get_humidity_out_hum_out(dev) regdev_read_field(dev->mRegDev, &(dev)->mHumidityOut, HTS_HUMIDITY_OUT_HUM_OUT_MASK )
+
+/**
+ * @brief reads the TEMP_OUT field from the device 
+ * @param dev ptr to HTS221 device
+ */
+#define hts_get_temp_out_temp_out(dev) regdev_read_field(dev->mRegDev, &(dev)->mTempOut, HTS_TEMP_OUT_TEMP_OUT_MASK )
+
 
 
 /*******************************************************************************
@@ -145,12 +199,28 @@
 /**
  * @brief writes the AVGH field from the device 
  * @param dev ptr to HTS221 device
+ * @option HTS_AV_CONF_AVGH_4 4 samples
+ * @option HTS_AV_CONF_AVGH_8 8 samples
+ * @option HTS_AV_CONF_AVGH_16 16 samples
+ * @option HTS_AV_CONF_AVGH_32 32 samples
+ * @option HTS_AV_CONF_AVGH_64 64 samples
+ * @option HTS_AV_CONF_AVGH_128 128 samples
+ * @option HTS_AV_CONF_AVGH_256 256 samples
+ * @option HTS_AV_CONF_AVGH_512 512 samples
  */
 #define hts_set_av_conf_avgh(dev) regdev_write_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGH_MASK )
 
 /**
  * @brief writes the AVGT field from the device 
  * @param dev ptr to HTS221 device
+ * @option HTS_AV_CONF_AVGT_2 2 samples
+ * @option HTS_AV_CONF_AVGT_4 4 samples
+ * @option HTS_AV_CONF_AVGT_8 8 samples
+ * @option HTS_AV_CONF_AVGT_16 16 samples
+ * @option HTS_AV_CONF_AVGT_32 32 samples
+ * @option HTS_AV_CONF_AVGT_64 64 samples
+ * @option HTS_AV_CONF_AVGT_128 128 samples
+ * @option HTS_AV_CONF_AVGT_256 256 samples
  */
 #define hts_set_av_conf_avgt(dev) regdev_write_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGT_MASK )
 
@@ -173,7 +243,7 @@
  * @brief Sets device to update every second
  * @param dev ptr to HTS221 device
  */
-#define hts_load_config_auto_1hz(dev) \
+#define HTS_LOAD_CONFIG_AUTO_1HZ(dev) \
 hts_write_reg( (dev), &(dev)->mCtrl1, 0x05);     /* ODR: 1HZ , BDU: 1 */          \
 hts_write_reg( (dev), &(dev)->mCtrl2, 0x66);                                      \
 
