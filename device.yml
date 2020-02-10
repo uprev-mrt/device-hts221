@@ -94,7 +94,7 @@ configs:
   - auto_1hz: 
       desc: Sets device to update every second
       registers:
+        - CTRL2: {BOOT: 1, delay: 20}
         - CTRL1: { ODR: 1HZ, BDU: 1}
-        - CTRL2: 0x66
 
 

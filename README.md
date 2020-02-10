@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>HTS221 Device</title>
-</head>
-<body>
-<div class="content">
+
 <h1>HTS221 Device</h1>
 <ul>
   <li> Generated with <a href="https://github.com/uprev-mrt/mrtutils/wiki/mrt-device">MrT Device Utility</a> </li>
   <li> Bus:  I2C</li>
+  <li> RegMap: <a href="Regmap.html">Register Map</a>
   <li>Datasheet: <a href="https://www.st.com/content/ccc/resource/technical/document/datasheet/4d/9a/9c/ad/25/07/42/34/DM00116291.pdf/files/DM00116291.pdf/jcr:content/translations/en.DM00116291.pdf">https://www.st.com/conte...</a> </li>
   <li> DigiKey: <a href="https://www.digikey.com/products/en?KeyWords=497-15382-1-ND">497-15382-1-ND</a></li>
   <li> I2C Address: 0xBE</li>
@@ -17,6 +12,9 @@
 <h2>Description: </h2>
 <p>Humidity and Temperature Sensor</p>
 
+<!--*user-block-description-start*-->
+
+<!--*user-block-description-end*-->
 <br/>
 
 
@@ -189,8 +187,9 @@
 </ul>
 
 <p>Id Register</p>
+<!--*user-block-who_am_i-start*-->
 
-
+<!--*user-block-who_am_i-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -205,7 +204,8 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="8"></td>
+
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -219,6 +219,9 @@
       <td class="zero" >0</td>
    </tr>
 </table>
+
+
+
 <div id="register_av_conf_detail" class="packet">
 <h2>AV_CONF </h2>
 <hr/>
@@ -228,8 +231,9 @@
 </ul>
 
 <p>Humidity and temperature resolution mode</p>
+<!--*user-block-av_conf-start*-->
 
-
+<!--*user-block-av_conf-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -244,7 +248,10 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="2"></td>
+<td class="field" colspan="3">AVGT</td>
+<td class="field" colspan="3">AVGH</td>
+
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -258,6 +265,38 @@
       <td class="one" >1</td>
    </tr>
 </table>
+
+
+<h2> Fields:</h2>
+
+<b>AVGH:</b> Selects the number of Humidity samples to average for data output
+<table>
+<tr><td> 4 </td><td> b000 </td><td>  4 samples</td></tr>
+<tr><td> 8 </td><td> b001 </td><td>  8 samples</td></tr>
+<tr><td> 16 </td><td> b010 </td><td>  16 samples</td></tr>
+<tr><td> 32 </td><td> b011 </td><td>  32 samples</td></tr>
+<tr><td> 64 </td><td> b100 </td><td>  64 samples</td></tr>
+<tr><td> 128 </td><td> b101 </td><td>  128 samples</td></tr>
+<tr><td> 256 </td><td> b110 </td><td>  256 samples</td></tr>
+<tr><td> 512 </td><td> b111 </td><td>  512 samples</td></tr>
+</table>
+
+
+
+<b>AVGT:</b> Selects the number of Temperature samples to average for data output
+<table>
+<tr><td> 2 </td><td> b000 </td><td>  2 samples</td></tr>
+<tr><td> 4 </td><td> b001 </td><td>  4 samples</td></tr>
+<tr><td> 8 </td><td> b010 </td><td>  8 samples</td></tr>
+<tr><td> 16 </td><td> b011 </td><td>  16 samples</td></tr>
+<tr><td> 32 </td><td> b100 </td><td>  32 samples</td></tr>
+<tr><td> 64 </td><td> b101 </td><td>  64 samples</td></tr>
+<tr><td> 128 </td><td> b110 </td><td>  128 samples</td></tr>
+<tr><td> 256 </td><td> b111 </td><td>  256 samples</td></tr>
+</table>
+
+
+
 <div id="register_ctrl1_detail" class="packet">
 <h2>CTRL1 </h2>
 <hr/>
@@ -267,8 +306,9 @@
 </ul>
 
 <p>Control register 1</p>
+<!--*user-block-ctrl1-start*-->
 
-
+<!--*user-block-ctrl1-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -283,7 +323,11 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="field" colspan="1">PD</td>
+<td class="empty" colspan="4"></td>
+<td class="field" colspan="1">BDU</td>
+<td class="field" colspan="2">ODR</td>
+
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -297,6 +341,23 @@
       <td class="zero" >0</td>
    </tr>
 </table>
+
+<h2> Flags:</h2>
+<b>PD:</b> power down mode<br>
+<b>BDU:</b> Block Data update. Prevents update until LSB of data is read<br>
+
+<h2> Fields:</h2>
+
+<b>ODR:</b> Selects the Output rate for the sensor data
+<table>
+<tr><td> ONESHOT </td><td> b00 </td><td>  readings must be requested</td></tr>
+<tr><td> 1HZ </td><td> b01 </td><td>  1 hz sampling</td></tr>
+<tr><td> 7HZ </td><td> b10 </td><td>  7 hz sampling</td></tr>
+<tr><td> 12_5HZ </td><td> b11 </td><td>  12.5 hz sampling</td></tr>
+</table>
+
+
+
 <div id="register_ctrl2_detail" class="packet">
 <h2>CTRL2 </h2>
 <hr/>
@@ -306,8 +367,9 @@
 </ul>
 
 <p>Control register 2</p>
+<!--*user-block-ctrl2-start*-->
 
-
+<!--*user-block-ctrl2-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -322,7 +384,11 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="field" colspan="1">BOOT</td>
+<td class="empty" colspan="5"></td>
+<td class="field" colspan="1">HEATER</td>
+<td class="field" colspan="1">ONESHOT</td>
+
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -336,6 +402,13 @@
       <td class="zero" >0</td>
    </tr>
 </table>
+
+<h2> Flags:</h2>
+<b>BOOT:</b> Reboot memory content<br>
+<b>HEATER:</b> Enable intenal heating element<br>
+<b>ONESHOT:</b> Start conversion for new data<br>
+
+
 <div id="register_ctrl3_detail" class="packet">
 <h2>CTRL3 </h2>
 <hr/>
@@ -345,8 +418,9 @@
 </ul>
 
 <p>Control register 3</p>
+<!--*user-block-ctrl3-start*-->
 
-
+<!--*user-block-ctrl3-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -361,7 +435,8 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="8"></td>
+
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -375,6 +450,9 @@
       <td class="zero" >0</td>
    </tr>
 </table>
+
+
+
 <div id="register_status_detail" class="packet">
 <h2>STATUS </h2>
 <hr/>
@@ -384,8 +462,9 @@
 </ul>
 
 <p>Status register</p>
+<!--*user-block-status-start*-->
 
-
+<!--*user-block-status-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -400,7 +479,10 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="6"></td>
+<td class="field" colspan="1">HUM_READY</td>
+<td class="field" colspan="1">TEMP_READY</td>
+
   </tr>
   <tr>
     <th class="smallCell">Default</th>
@@ -414,6 +496,12 @@
       <td class="zero" >0</td>
    </tr>
 </table>
+
+<h2> Flags:</h2>
+<b>TEMP_READY:</b> indicates that a temperature reading is ready<br>
+<b>HUM_READY:</b> indicates that a humidity reading is ready<br>
+
+
 <div id="register_humidity_out_detail" class="packet">
 <h2>HUMIDITY_OUT </h2>
 <hr/>
@@ -422,8 +510,9 @@
 </ul>
 
 <p>Relative humidity data</p>
+<!--*user-block-humidity_out-start*-->
 
-
+<!--*user-block-humidity_out-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -446,9 +535,17 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="field" colspan="16">HUM_OUT</td>
+
   </tr>
 </table>
+
+
+<h2> Fields:</h2>
+
+<b>HUM_OUT:</b> Current ADC reading for humidity sensor
+
+
 <div id="register_temp_out_detail" class="packet">
 <h2>TEMP_OUT </h2>
 <hr/>
@@ -457,8 +554,9 @@
 </ul>
 
 <p>Temperature data</p>
+<!--*user-block-temp_out-start*-->
 
-
+<!--*user-block-temp_out-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -481,9 +579,17 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="field" colspan="16">TEMP_OUT</td>
+
   </tr>
 </table>
+
+
+<h2> Fields:</h2>
+
+<b>TEMP_OUT:</b> Current ADC reading for temperature sensor
+
+
 <div id="register_h0_rh_x2_detail" class="packet">
 <h2>H0_rH_x2 </h2>
 <hr/>
@@ -492,8 +598,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-h0_rh_x2-start*-->
 
-
+<!--*user-block-h0_rh_x2-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -508,9 +615,13 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="8"></td>
+
   </tr>
 </table>
+
+
+
 <div id="register_h1_rh_x2_detail" class="packet">
 <h2>H1_rH_x2 </h2>
 <hr/>
@@ -519,8 +630,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-h1_rh_x2-start*-->
 
-
+<!--*user-block-h1_rh_x2-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -535,9 +647,13 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="8"></td>
+
   </tr>
 </table>
+
+
+
 <div id="register_t0_degc_x8_detail" class="packet">
 <h2>T0_DEGC_x8 </h2>
 <hr/>
@@ -546,8 +662,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-t0_degc_x8-start*-->
 
-
+<!--*user-block-t0_degc_x8-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -562,9 +679,13 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="8"></td>
+
   </tr>
 </table>
+
+
+
 <div id="register_t1_degc_x8_detail" class="packet">
 <h2>T1_DEGC_x8 </h2>
 <hr/>
@@ -573,8 +694,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-t1_degc_x8-start*-->
 
-
+<!--*user-block-t1_degc_x8-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -589,9 +711,13 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="8"></td>
+
   </tr>
 </table>
+
+
+
 <div id="register_t1t0_msb_detail" class="packet">
 <h2>T1T0_MSB </h2>
 <hr/>
@@ -600,8 +726,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-t1t0_msb-start*-->
 
-
+<!--*user-block-t1t0_msb-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -616,9 +743,13 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="8"></td>
+
   </tr>
 </table>
+
+
+
 <div id="register_h0_t0_out_detail" class="packet">
 <h2>H0_T0_OUT </h2>
 <hr/>
@@ -627,8 +758,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-h0_t0_out-start*-->
 
-
+<!--*user-block-h0_t0_out-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -651,9 +783,13 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="16"></td>
+
   </tr>
 </table>
+
+
+
 <div id="register_h1_t0_out_detail" class="packet">
 <h2>H1_T0_OUT </h2>
 <hr/>
@@ -662,8 +798,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-h1_t0_out-start*-->
 
-
+<!--*user-block-h1_t0_out-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -686,9 +823,13 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="16"></td>
+
   </tr>
 </table>
+
+
+
 <div id="register_t0_out_detail" class="packet">
 <h2>T0_OUT </h2>
 <hr/>
@@ -697,8 +838,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-t0_out-start*-->
 
-
+<!--*user-block-t0_out-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -721,9 +863,13 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="16"></td>
+
   </tr>
 </table>
+
+
+
 <div id="register_t1_out_detail" class="packet">
 <h2>T1_OUT </h2>
 <hr/>
@@ -732,8 +878,9 @@
 </ul>
 
 <p>Calibration data</p>
+<!--*user-block-t1_out-start*-->
 
-
+<!--*user-block-t1_out-end*-->
 <table class="fields" width="80%">
   <tr>
     <th class="smallCell">bit</th>
@@ -756,182 +903,9 @@
   </tr>
   <tr>
     <th class="smallCell">Field</th>
-   
+   <td class="empty" colspan="16"></td>
+
   </tr>
 </table>
 
-</div>
-</body>
-<style>
-table.fixed { table-layout:auto; }
-table.fixed td { overflow:visible; }
 
-table.fields{
-  table-layout:auto;
-}
-
-body {
-  padding:0;
-}
-
-.content{
-  padding-top: 0;
-  padding-left: 1%;
-  padding-right: 1%;
-  background-color: #fff;
-}
-
-@media print {
-  .packet {
-    page-break-inside: avoid;
-    padding-top: 4px;
-  }
-  .content{
-    width: 100%;
-  }
-  body{
-    background-color: #fff;
-  }
-}
-
-@media screen {
-  .content{
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0;
-    padding-top: 4px;
-    box-shadow: 5px 10px #AAA;
-  }
-
-  body{
-    background-color: #ccc;
-    padding: 0;
-  }
-}
-
-html *{
-  font-size: 1em ;
-   color: #000 ;
-  font-family: Arial ;
-}
-
-hr.section {
-  border-style: solid;
-  border-width: 2px;
-  opacity: 1;
-}
-
-
-hr.thick {
-  border-style: solid;
-  border-width: 1px;
-  border-color: #94b2d3;
-  opacity: 1;
-}
-
-hr {
-  opacity: 0.5;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-td {
-  border: 1px solid #000000;
-  text-align: left;
-  padding: 5px;
-  vertical-align: top;
-}
-
-.smallCell
-{
-    width: 1px;
-    white-space: nowrap;
-}
-
-td.zero{
-  background-color: #ce927e;
-}
-
-td.one{
-  background-color: #98cd98;
-}
-
-td.empty{
-  background-color: #cccccc;
-}
-
-td.field{
-  width: 1px;
-  white-space: nowrap;
-  text-align: center;
-}
-
-.desc{
-  font-size: 1.2em;
-}
-
-th {
-  border: 1px solid #000000;
-  text-align: left;
-  padding: 5px;
-  background-color: #94b2d3;
-}
-
-li.val{
-  opacity: 0.6;
-}
-
-h1{
-  font-size: 2.0em;
-}
-
-h2 
-{
-  font-size: 1.3em;
-}
-
-h2.right{
-  text-align: center;
-  font-size: 1.3em;
-}
-
-h3
-{
-  font-size: 1.8em;
-  color: #003366;
-}
-
-h4 
-{
-  font-size: 1.1em;
-  color: #003366;
-}
-
-
-.note{
-  font-style: italic;
-  opacity: 0.6;
-}
-
-a{
-  text-decoration:none;
-}
-
-a:link {
-  color: blue;
-}
-
-/* visited link */
-a:visited {
-  color: blue;
-}
-
-table.fixed tr td:last-child{
-    width:1%;
-    white-space:nowrap;
-}
-</style>
-</html>

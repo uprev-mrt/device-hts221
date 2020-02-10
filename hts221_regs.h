@@ -141,7 +141,7 @@
 *******************************************************************************/
 
 /**
- * @brief reads the AVGH field from the device 
+ * @brief reads the AVGH field from the AV_CONF register 
  * @param dev ptr to HTS221 device
  * @return HTS_AV_CONF_AVGH_4 4 samples
  * @return HTS_AV_CONF_AVGH_8 8 samples
@@ -152,10 +152,10 @@
  * @return HTS_AV_CONF_AVGH_256 256 samples
  * @return HTS_AV_CONF_AVGH_512 512 samples
  */
-#define hts_get_av_conf_avgh(dev) regdev_read_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGH_MASK )
+#define hts_get_av_conf_avgh(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGH_FIELD_MASK )
 
 /**
- * @brief reads the AVGT field from the device 
+ * @brief reads the AVGT field from the AV_CONF register 
  * @param dev ptr to HTS221 device
  * @return HTS_AV_CONF_AVGT_2 2 samples
  * @return HTS_AV_CONF_AVGT_4 4 samples
@@ -166,29 +166,29 @@
  * @return HTS_AV_CONF_AVGT_128 128 samples
  * @return HTS_AV_CONF_AVGT_256 256 samples
  */
-#define hts_get_av_conf_avgt(dev) regdev_read_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGT_MASK )
+#define hts_get_av_conf_avgt(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGT_FIELD_MASK )
 
 /**
- * @brief reads the ODR field from the device 
+ * @brief reads the ODR field from the CTRL1 register 
  * @param dev ptr to HTS221 device
  * @return HTS_CTRL1_ODR_ONESHOT readings must be requested
  * @return HTS_CTRL1_ODR_1HZ 1 hz sampling
  * @return HTS_CTRL1_ODR_7HZ 7 hz sampling
  * @return HTS_CTRL1_ODR_12_5HZ 12.5 hz sampling
  */
-#define hts_get_ctrl1_odr(dev) regdev_read_field(dev->mRegDev, &(dev)->mCtrl1, HTS_CTRL1_ODR_MASK )
+#define hts_get_ctrl1_odr(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mCtrl1, HTS_CTRL1_ODR_FIELD_MASK )
 
 /**
- * @brief reads the HUM_OUT field from the device 
+ * @brief reads the HUM_OUT field from the HUMIDITY_OUT register 
  * @param dev ptr to HTS221 device
  */
-#define hts_get_humidity_out_hum_out(dev) regdev_read_field(dev->mRegDev, &(dev)->mHumidityOut, HTS_HUMIDITY_OUT_HUM_OUT_MASK )
+#define hts_get_humidity_out_hum_out(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mHumidityOut, HTS_HUMIDITY_OUT_HUM_OUT_FIELD_MASK )
 
 /**
- * @brief reads the TEMP_OUT field from the device 
+ * @brief reads the TEMP_OUT field from the TEMP_OUT register 
  * @param dev ptr to HTS221 device
  */
-#define hts_get_temp_out_temp_out(dev) regdev_read_field(dev->mRegDev, &(dev)->mTempOut, HTS_TEMP_OUT_TEMP_OUT_MASK )
+#define hts_get_temp_out_temp_out(dev) regdev_read_field(&(dev)->mRegDev, &(dev)->mTempOut, HTS_TEMP_OUT_TEMP_OUT_FIELD_MASK )
 
 
 
@@ -197,7 +197,7 @@
 *******************************************************************************/
 
 /**
- * @brief writes the AVGH field from the device 
+ * @brief writes the AVGH field to the AV_CONF register 
  * @param dev ptr to HTS221 device
  * @option HTS_AV_CONF_AVGH_4 4 samples
  * @option HTS_AV_CONF_AVGH_8 8 samples
@@ -208,10 +208,10 @@
  * @option HTS_AV_CONF_AVGH_256 256 samples
  * @option HTS_AV_CONF_AVGH_512 512 samples
  */
-#define hts_set_av_conf_avgh(dev) regdev_write_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGH_MASK )
+#define hts_set_av_conf_avgh(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGH_FIELD_MASK , (val) )
 
 /**
- * @brief writes the AVGT field from the device 
+ * @brief writes the AVGT field to the AV_CONF register 
  * @param dev ptr to HTS221 device
  * @option HTS_AV_CONF_AVGT_2 2 samples
  * @option HTS_AV_CONF_AVGT_4 4 samples
@@ -222,17 +222,17 @@
  * @option HTS_AV_CONF_AVGT_128 128 samples
  * @option HTS_AV_CONF_AVGT_256 256 samples
  */
-#define hts_set_av_conf_avgt(dev) regdev_write_field(dev->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGT_MASK )
+#define hts_set_av_conf_avgt(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mAvConf, HTS_AV_CONF_AVGT_FIELD_MASK , (val) )
 
 /**
- * @brief writes the ODR field from the device 
+ * @brief writes the ODR field to the CTRL1 register 
  * @param dev ptr to HTS221 device
  * @option HTS_CTRL1_ODR_ONESHOT readings must be requested
  * @option HTS_CTRL1_ODR_1HZ 1 hz sampling
  * @option HTS_CTRL1_ODR_7HZ 7 hz sampling
  * @option HTS_CTRL1_ODR_12_5HZ 12.5 hz sampling
  */
-#define hts_set_ctrl1_odr(dev) regdev_write_field(dev->mRegDev, &(dev)->mCtrl1, HTS_CTRL1_ODR_MASK )
+#define hts_set_ctrl1_odr(dev, val) regdev_write_field(&(dev)->mRegDev, &(dev)->mCtrl1, HTS_CTRL1_ODR_FIELD_MASK , (val) )
 
 
 /*******************************************************************************
@@ -244,6 +244,7 @@
  * @param dev ptr to HTS221 device
  */
 #define HTS_LOAD_CONFIG_AUTO_1HZ(dev) \
+hts_write_reg( (dev), &(dev)->mCtrl2, 0x80);     /* BOOT: 1 */                    \
+MRT_DELAY_MS(20);                                /* Delay for CTRL2 */ \
 hts_write_reg( (dev), &(dev)->mCtrl1, 0x05);     /* ODR: 1HZ , BDU: 1 */          \
-hts_write_reg( (dev), &(dev)->mCtrl2, 0x66);                                      \
 
