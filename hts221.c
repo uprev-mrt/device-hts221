@@ -18,23 +18,23 @@
 static mrt_status_t hts_init(hts221_t* dev)
 {   
     /* Initialize Register Descriptors */
-    REG_INIT( dev->mWhoAmI , HTS_REG_WHO_AM_I_ADDR , uint8_t, REG_PERM_R  );
-    REG_INIT( dev->mAvConf , HTS_REG_AV_CONF_ADDR , uint8_t, REG_PERM_RW  );
-    REG_INIT( dev->mCtrl1 , HTS_REG_CTRL1_ADDR , uint8_t, REG_PERM_RW  );
-    REG_INIT( dev->mCtrl2 , HTS_REG_CTRL2_ADDR , uint8_t, REG_PERM_RW  );
-    REG_INIT( dev->mCtrl3 , HTS_REG_CTRL3_ADDR , uint8_t, REG_PERM_RW  );
-    REG_INIT( dev->mStatus , HTS_REG_STATUS_ADDR , uint8_t, REG_PERM_R  );
-    REG_INIT( dev->mHumidityOut , HTS_REG_HUMIDITY_OUT_ADDR , int16_t, REG_PERM_R  );
-    REG_INIT( dev->mTempOut , HTS_REG_TEMP_OUT_ADDR , int16_t, REG_PERM_R  );
-    REG_INIT( dev->mH0RhX2 , HTS_REG_H0_RH_X2_ADDR , uint8_t, REG_PERM_R  );
-    REG_INIT( dev->mH1RhX2 , HTS_REG_H1_RH_X2_ADDR , uint8_t, REG_PERM_R  );
-    REG_INIT( dev->mT0DegcX8 , HTS_REG_T0_DEGC_X8_ADDR , uint8_t, REG_PERM_R  );
-    REG_INIT( dev->mT1DegcX8 , HTS_REG_T1_DEGC_X8_ADDR , uint8_t, REG_PERM_R  );
-    REG_INIT( dev->mT1t0Msb , HTS_REG_T1T0_MSB_ADDR , uint8_t, REG_PERM_R  );
-    REG_INIT( dev->mH0T0Out , HTS_REG_H0_T0_OUT_ADDR , int16_t, REG_PERM_R  );
-    REG_INIT( dev->mH1T0Out , HTS_REG_H1_T0_OUT_ADDR , int16_t, REG_PERM_R  );
-    REG_INIT( dev->mT0Out , HTS_REG_T0_OUT_ADDR , int16_t, REG_PERM_R  );
-    REG_INIT( dev->mT1Out , HTS_REG_T1_OUT_ADDR , int16_t, REG_PERM_R  );
+    REG_INIT( dev->mWhoAmI , HTS_REG_WHO_AM_I_ADDR , uint8_t, REG_PERM_R , 0xBC  );
+    REG_INIT( dev->mAvConf , HTS_REG_AV_CONF_ADDR , uint8_t, REG_PERM_RW , 0x1B  );
+    REG_INIT( dev->mCtrl1 , HTS_REG_CTRL1_ADDR , uint8_t, REG_PERM_RW , 0x00  );
+    REG_INIT( dev->mCtrl2 , HTS_REG_CTRL2_ADDR , uint8_t, REG_PERM_RW , 0x00  );
+    REG_INIT( dev->mCtrl3 , HTS_REG_CTRL3_ADDR , uint8_t, REG_PERM_RW , 0x00  );
+    REG_INIT( dev->mStatus , HTS_REG_STATUS_ADDR , uint8_t, REG_PERM_R , 0x00  );
+    REG_INIT( dev->mHumidityOut , HTS_REG_HUMIDITY_OUT_ADDR , int16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mTempOut , HTS_REG_TEMP_OUT_ADDR , int16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mH0RhX2 , HTS_REG_H0_RH_X2_ADDR , uint8_t, REG_PERM_R , 0x00  );
+    REG_INIT( dev->mH1RhX2 , HTS_REG_H1_RH_X2_ADDR , uint8_t, REG_PERM_R , 0x00  );
+    REG_INIT( dev->mT0DegcX8 , HTS_REG_T0_DEGC_X8_ADDR , uint8_t, REG_PERM_R , 0x00  );
+    REG_INIT( dev->mT1DegcX8 , HTS_REG_T1_DEGC_X8_ADDR , uint8_t, REG_PERM_R , 0x00  );
+    REG_INIT( dev->mT1t0Msb , HTS_REG_T1T0_MSB_ADDR , uint8_t, REG_PERM_R , 0x00  );
+    REG_INIT( dev->mH0T0Out , HTS_REG_H0_T0_OUT_ADDR , int16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mH1T0Out , HTS_REG_H1_T0_OUT_ADDR , int16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mT0Out , HTS_REG_T0_OUT_ADDR , int16_t, REG_PERM_R , 0x0000  );
+    REG_INIT( dev->mT1Out , HTS_REG_T1_OUT_ADDR , int16_t, REG_PERM_R , 0x0000  );
 
 
     /*user-block-init-start*/

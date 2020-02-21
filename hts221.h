@@ -26,24 +26,24 @@ extern "C"
 *******************************************************************************/
 
 typedef struct{
-    mrt_regdev_t mRegDev; //ptr to base register-device 
-    mrt_reg_t mWhoAmI;  //Id Register
-    mrt_reg_t mAvConf;  //Humidity and temperature resolution mode
-    mrt_reg_t mCtrl1;  //Control register 1
-    mrt_reg_t mCtrl2;  //Control register 2
-    mrt_reg_t mCtrl3;  //Control register 3
-    mrt_reg_t mStatus;  //Status register
-    mrt_reg_t mHumidityOut;  //Relative humidity data
-    mrt_reg_t mTempOut;  //Temperature data
-    mrt_reg_t mH0RhX2;  //Calibration data
-    mrt_reg_t mH1RhX2;  //Calibration data
-    mrt_reg_t mT0DegcX8;  //Calibration data
-    mrt_reg_t mT1DegcX8;  //Calibration data
-    mrt_reg_t mT1t0Msb;  //Calibration data
-    mrt_reg_t mH0T0Out;  //Calibration data
-    mrt_reg_t mH1T0Out;  //Calibration data
-    mrt_reg_t mT0Out;  //Calibration data
-    mrt_reg_t mT1Out;  //Calibration data
+    mrt_regdev_t mRegDev;            //ptr to base register-device 
+    mrt_reg_t mWhoAmI;               //Id Register
+    mrt_reg_t mAvConf;               //Humidity and temperature resolution mode
+    mrt_reg_t mCtrl1;                //Control register 1
+    mrt_reg_t mCtrl2;                //Control register 2
+    mrt_reg_t mCtrl3;                //Control register 3
+    mrt_reg_t mStatus;               //Status register
+    mrt_reg_t mHumidityOut;          //Relative humidity data
+    mrt_reg_t mTempOut;              //Temperature data
+    mrt_reg_t mH0RhX2;               //Calibration data
+    mrt_reg_t mH1RhX2;               //Calibration data
+    mrt_reg_t mT0DegcX8;             //Calibration data
+    mrt_reg_t mT1DegcX8;             //Calibration data
+    mrt_reg_t mT1t0Msb;              //Calibration data
+    mrt_reg_t mH0T0Out;              //Calibration data
+    mrt_reg_t mH1T0Out;              //Calibration data
+    mrt_reg_t mT0Out;                //Calibration data
+    mrt_reg_t mT1Out;                //Calibration data
 /*user-block-struct-start*/
 
     int mPrevTemp;  
