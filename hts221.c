@@ -91,16 +91,17 @@ mrt_status_t hts_init_i2c(hts221_t* dev, mrt_i2c_handle_t i2c)
     /*user-block-init-i2c-start*/
     /*user-block-init-i2c-end*/
     
-    return MRT_STATUS_OK;
+    return status;
 }
 
 mrt_status_t hts_test(hts221_t* dev)
 {
+    mrt_status_t status = MRT_STATUS_ERROR;
     /*user-block-test-start*/
     if( hts_read_reg(dev, &dev->mWhoAmI) == HTS_WHO_AM_I_DEFAULT)
         return MRT_STATUS_OK;
     /*user-block-test-end*/
-    return MRT_STATUS_ERROR;
+    return status;
 }
 
 

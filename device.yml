@@ -11,7 +11,11 @@ digikey_pn: 497-15382-1-ND
 prefix: HTS
 bus: I2C
 i2c_addr: 0xBE
-ai_mask: 0x80
+ai_mask: 0x80             #some devices require the address to have a bit set to auto-increment the address
+
+###########################################################################################################
+#                                   Registers                                                             #
+###########################################################################################################
 
 registers:
   - WHO_AM_I:     { addr: 0x0F , type: uint8_t, perm: R, desc:  Id Register, default: 0xBC}                
@@ -32,6 +36,11 @@ registers:
   - H1_T0_OUT:    { addr: 0x3A , type: int16_t, perm: R, desc: Calibration data}
   - T0_OUT:       { addr: 0x3C , type: int16_t, perm: R, desc: Calibration data}
   - T1_OUT:       { addr: 0x3E , type: int16_t, perm: R, desc: Calibration data}
+
+
+###########################################################################################################
+#                                   Fields                                                                #
+###########################################################################################################
 
 fields:
   - STATUS:
@@ -90,11 +99,30 @@ fields:
   - HUMIDITY_OUT:
     - HUM_OUT: {mask: 0xFFFF, desc: Current ADC reading for humidity sensor}
 
+###########################################################################################################
+#                                   Configurations                                                        #
+###########################################################################################################
+
 configs:
   - auto_1hz: 
       desc: Sets device to update every second
       registers:
         - CTRL2: {BOOT: 1, delay: 20}
         - CTRL1: { ODR: 1HZ, BDU: 1}
+
+###########################################################################################################
+#                                   HW  (experimental)                                                    #
+###########################################################################################################
+
+package: custom
+
+pins:
+  - VDD :   {pad: 1, type: supply,           desc: Power supply }
+  - SCL :   {pad: 2, type: digital, dir: io, desc: I2C serial clock (SCL) / SPI serial port clock (SPC) }
+  - DRDY :  {pad: 3, type: digital, dir: o, desc: Data Ready output signal }
+  - SDA :   {pad: 4, type: digital, dir: io, desc: I2C serial data (SDA) / 3-wire SPI serial data input /output (SDI/SDO)}
+  - GND :   {pad: 5, type: gnd,              desc: Ground}
+  - SPIen : {pad: 6, type: digital, dir: i, desc: I2C/SPI mode selection}
+
 
 
