@@ -55,7 +55,7 @@ T1_OUT_                0x3E                 int16                R              
 
 
 Registers
-=========
+---------
 
 
 
