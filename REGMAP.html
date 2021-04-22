@@ -16,6 +16,9 @@
 <hr/>
 <h2>Description: </h2>
 <p>Humidity and Temperature Sensor</p>
+<!--*user-block-description-start*-->
+
+<!--*user-block-description-end*-->
 
 <br/>
 
@@ -40,7 +43,7 @@
 </div>
 <script>
   
-  var device = {"name": "HTS221", "regs": {"WHO_AM_I": {"name": "WHO_AM_I", "addr": 15, "type": "uint8_t", "size": 8, "perm": "R", "default": 188, "hasDefault": true, "desc": "Id Register", "fields": {}}, "AV_CONF": {"name": "AV_CONF", "addr": 16, "type": "uint8_t", "size": 8, "perm": "RW", "default": 27, "hasDefault": true, "desc": "Humidity and temperature resolution mode", "fields": {"AVGH": {"mask": 7, "size": 3, "offset": 0, "desc": "Selects the number of Humidity samples to average for data output", "vals": [{"name": "4", "val": 0, "desc": "4 samples"}, {"name": "8", "val": 1, "desc": "8 samples"}, {"name": "16", "val": 2, "desc": "16 samples"}, {"name": "32", "val": 3, "desc": "32 samples"}, {"name": "64", "val": 4, "desc": "64 samples"}, {"name": "128", "val": 5, "desc": "128 samples"}, {"name": "256", "val": 6, "desc": "256 samples"}, {"name": "512", "val": 7, "desc": "512 samples"}]}, "AVGT": {"mask": 56, "size": 3, "offset": 3, "desc": "Selects the number of Temperature samples to average for data output", "vals": [{"name": "2", "val": 0, "desc": "2 samples"}, {"name": "4", "val": 1, "desc": "4 samples"}, {"name": "8", "val": 2, "desc": "8 samples"}, {"name": "16", "val": 3, "desc": "16 samples"}, {"name": "32", "val": 4, "desc": "32 samples"}, {"name": "64", "val": 5, "desc": "64 samples"}, {"name": "128", "val": 6, "desc": "128 samples"}, {"name": "256", "val": 7, "desc": "256 samples"}]}}}, "CTRL1": {"name": "CTRL1", "addr": 32, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 1", "fields": {"PD": {"mask": 128, "size": 1, "offset": 7, "desc": "power down mode", "vals": []}, "BDU": {"mask": 4, "size": 1, "offset": 2, "desc": "Block Data update. Prevents update until LSB of data is read", "vals": []}, "ODR": {"mask": 3, "size": 2, "offset": 0, "desc": "Selects the Output rate for the sensor data", "vals": [{"name": "ONESHOT", "val": 0, "desc": "readings must be requested"}, {"name": "1HZ", "val": 1, "desc": "1 hz sampling"}, {"name": "7HZ", "val": 2, "desc": "7 hz sampling"}, {"name": "12_5HZ", "val": 3, "desc": "12.5 hz sampling"}]}}}, "CTRL2": {"name": "CTRL2", "addr": 33, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 2", "fields": {"BOOT": {"mask": 128, "size": 1, "offset": 7, "desc": "Reboot memory content", "vals": []}, "HEATER": {"mask": 2, "size": 1, "offset": 1, "desc": "Enable intenal heating element", "vals": []}, "ONESHOT": {"mask": 1, "size": 1, "offset": 0, "desc": "Start conversion for new data", "vals": []}}}, "CTRL3": {"name": "CTRL3", "addr": 34, "type": "uint8_t", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 3", "fields": {}}, "STATUS": {"name": "STATUS", "addr": 39, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": true, "desc": "Status register", "fields": {"TEMP_READY": {"mask": 1, "size": 1, "offset": 0, "desc": "indicates that a temperature reading is ready", "vals": []}, "HUM_READY": {"mask": 2, "size": 1, "offset": 1, "desc": "indicates that a humidity reading is ready", "vals": []}}}, "HUMIDITY_OUT": {"name": "HUMIDITY_OUT", "addr": 40, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Relative humidity data", "fields": {"HUM_OUT": {"mask": 65535, "size": 16, "offset": 0, "desc": "Current ADC reading for humidity sensor", "vals": []}}}, "TEMP_OUT": {"name": "TEMP_OUT", "addr": 42, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Temperature data", "fields": {"TEMP_OUT": {"mask": 65535, "size": 16, "offset": 0, "desc": "Current ADC reading for temperature sensor", "vals": []}}}, "H0_rH_x2": {"name": "H0_rH_x2", "addr": 48, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H1_rH_x2": {"name": "H1_rH_x2", "addr": 49, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T0_DEGC_x8": {"name": "T0_DEGC_x8", "addr": 50, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1_DEGC_x8": {"name": "T1_DEGC_x8", "addr": 51, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1T0_MSB": {"name": "T1T0_MSB", "addr": 53, "type": "uint8_t", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H0_T0_OUT": {"name": "H0_T0_OUT", "addr": 54, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H1_T0_OUT": {"name": "H1_T0_OUT", "addr": 58, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T0_OUT": {"name": "T0_OUT", "addr": 60, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1_OUT": {"name": "T1_OUT", "addr": 62, "type": "int16_t", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}}, "configs": {"Default": {"WHO_AM_I": 188, "AV_CONF": 27, "CTRL1": 0, "CTRL2": 0, "CTRL3": 0, "STATUS": 0}, "auto_1hz": {"CTRL2": 128, "CTRL1": 5}}, "currentVals": {"WHO_AM_I": 188, "AV_CONF": 27, "CTRL1": 0, "CTRL2": 0, "CTRL3": 0, "STATUS": 0}, "smallestReg": 8, "largestReg": 16};
+  var device = {"name": "HTS221", "regs": {"WHO_AM_I": {"name": "WHO_AM_I", "addr": 15, "type": "uint8", "size": 8, "perm": "R", "default": 188, "hasDefault": true, "desc": "Id Register", "fields": {"WHO_AM_I": {"mask": 255, "size": 8, "offset": 0, "desc": "Id Register", "vals": []}}}, "AV_CONF": {"name": "AV_CONF", "addr": 16, "type": "uint8", "size": 8, "perm": "RW", "default": 27, "hasDefault": true, "desc": "Humidity and temperature resolution mode", "fields": {"AVGH": {"mask": 7, "size": 3, "offset": 0, "desc": "Selects the number of Humidity samples to average for data output", "vals": [{"name": "4", "val": 0, "desc": "4 samples"}, {"name": "8", "val": 1, "desc": "8 samples"}, {"name": "16", "val": 2, "desc": "16 samples"}, {"name": "32", "val": 3, "desc": "32 samples"}, {"name": "64", "val": 4, "desc": "64 samples"}, {"name": "128", "val": 5, "desc": "128 samples"}, {"name": "256", "val": 6, "desc": "256 samples"}, {"name": "512", "val": 7, "desc": "512 samples"}]}, "AVGT": {"mask": 56, "size": 3, "offset": 3, "desc": "Selects the number of Temperature samples to average for data output", "vals": [{"name": "2", "val": 0, "desc": "2 samples"}, {"name": "4", "val": 1, "desc": "4 samples"}, {"name": "8", "val": 2, "desc": "8 samples"}, {"name": "16", "val": 3, "desc": "16 samples"}, {"name": "32", "val": 4, "desc": "32 samples"}, {"name": "64", "val": 5, "desc": "64 samples"}, {"name": "128", "val": 6, "desc": "128 samples"}, {"name": "256", "val": 7, "desc": "256 samples"}]}}}, "CTRL1": {"name": "CTRL1", "addr": 32, "type": "uint8", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 1", "fields": {"PD": {"mask": 128, "size": 1, "offset": 7, "desc": "power down mode", "vals": []}, "BDU": {"mask": 4, "size": 1, "offset": 2, "desc": "Block Data update. Prevents update until LSB of data is read", "vals": []}, "ODR": {"mask": 3, "size": 2, "offset": 0, "desc": "Selects the Output rate for the sensor data", "vals": [{"name": "ONESHOT", "val": 0, "desc": "readings must be requested"}, {"name": "1HZ", "val": 1, "desc": "1 hz sampling"}, {"name": "7HZ", "val": 2, "desc": "7 hz sampling"}, {"name": "12_5HZ", "val": 3, "desc": "12.5 hz sampling"}]}}}, "CTRL2": {"name": "CTRL2", "addr": 33, "type": "uint8", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 2", "fields": {"BOOT": {"mask": 128, "size": 1, "offset": 7, "desc": "Reboot memory content", "vals": []}, "HEATER": {"mask": 2, "size": 1, "offset": 1, "desc": "Enable intenal heating element", "vals": []}, "ONESHOT": {"mask": 1, "size": 1, "offset": 0, "desc": "Start conversion for new data", "vals": []}}}, "CTRL3": {"name": "CTRL3", "addr": 34, "type": "uint8", "size": 8, "perm": "RW", "default": 0, "hasDefault": true, "desc": "Control register 3", "fields": {"CTRL3": {"mask": 255, "size": 8, "offset": 0, "desc": "Control register 3", "vals": []}}}, "STATUS": {"name": "STATUS", "addr": 39, "type": "uint8", "size": 8, "perm": "R", "default": 0, "hasDefault": true, "desc": "Status register", "fields": {"TEMP_READY": {"mask": 1, "size": 1, "offset": 0, "desc": "indicates that a temperature reading is ready", "vals": []}, "HUM_READY": {"mask": 2, "size": 1, "offset": 1, "desc": "indicates that a humidity reading is ready", "vals": []}}}, "HUMIDITY_OUT": {"name": "HUMIDITY_OUT", "addr": 40, "type": "int16", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Relative humidity data", "fields": {"HUM_OUT": {"mask": 65535, "size": 16, "offset": 0, "desc": "Current ADC reading for humidity sensor", "vals": []}}}, "TEMP_OUT": {"name": "TEMP_OUT", "addr": 42, "type": "int16", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Temperature data", "fields": {"TEMP_OUT": {"mask": 65535, "size": 16, "offset": 0, "desc": "Current ADC reading for temperature sensor", "vals": []}}}, "H0_rH_x2": {"name": "H0_rH_x2", "addr": 48, "type": "uint8", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H1_rH_x2": {"name": "H1_rH_x2", "addr": 49, "type": "uint8", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T0_DEGC_x8": {"name": "T0_DEGC_x8", "addr": 50, "type": "uint8", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1_DEGC_x8": {"name": "T1_DEGC_x8", "addr": 51, "type": "uint8", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1T0_MSB": {"name": "T1T0_MSB", "addr": 53, "type": "uint8", "size": 8, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H0_T0_OUT": {"name": "H0_T0_OUT", "addr": 54, "type": "int16", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "H1_T0_OUT": {"name": "H1_T0_OUT", "addr": 58, "type": "int16", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T0_OUT": {"name": "T0_OUT", "addr": 60, "type": "int16", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}, "T1_OUT": {"name": "T1_OUT", "addr": 62, "type": "int16", "size": 16, "perm": "R", "default": 0, "hasDefault": false, "desc": "Calibration data", "fields": {}}}, "configs": {"Default": {"WHO_AM_I": 188, "AV_CONF": 27, "CTRL1": 0, "CTRL2": 0, "CTRL3": 0, "STATUS": 0}, "auto_1hz": {"CTRL2": 128, "CTRL1": 5}}, "currentVals": {"WHO_AM_I": 188, "AV_CONF": 27, "CTRL1": 0, "CTRL2": 0, "CTRL3": 0, "STATUS": 0}, "smallestReg": 8, "largestReg": 16};
 
   var sel =  document.getElementById("cfgSelect");
 
@@ -71,6 +74,7 @@
     {
       field.name = name;
       resp.field = field;
+      field.remaining = field.size;
       resp.len = field.size;
       resp.cont = false;
       return resp;
@@ -79,7 +83,7 @@
     {
       field.name = name;
       resp.field = field;
-      resp.len = field.size - (bit - end);
+      resp.len = field.remaining;
       resp.cont = true;
       return resp;
     }
@@ -103,13 +107,17 @@ function buildRegMap(tableId, dev)
 
   let headcell = document.createElement("th");
   headcell.textContent = "Register";
-  headcell.setAttribute("width", "12%");
+  headcell.setAttribute("width", "10%");
+  head.appendChild(headcell);
+  headcell = document.createElement("th");
+  headcell.textContent ="Addr";
+  headcell.setAttribute("width", "4%");
   head.appendChild(headcell);
   headcell = document.createElement("th");
   headcell.textContent ="RW";
   headcell.setAttribute("width", "3%");
   head.appendChild(headcell);
-  let cellWidth = 85 / dev.smallestReg;
+  let cellWidth = 83 / dev.smallestReg;
   for(var n = dev.smallestReg; n > 0; n--)
   {
     headcell = document.createElement("th");
@@ -127,12 +135,20 @@ function buildRegMap(tableId, dev)
 
     let head = document.createElement("th");
     let access = document.createElement("th");
-    head.textContent = name;
+    let regAddr = document.createElement("th");
+    let headAnch = document.createElement("a");
+    headAnch.textContent = reg.name
     head.setAttribute("rowspan",rowSpan);
+    regAddr.textContent = "x"+reg.addr.toString(16).padStart(4,"0")
+    regAddr.setAttribute("rowspan", rowSpan);
     access.textContent =reg.perm;
     access.setAttribute("rowspan",rowSpan);
+    headAnch.setAttribute("data-tt",'');
+    headAnch.setAttribute("data-tt-lbl", reg.name +"\n\n" +reg.desc );
 
+    head.appendChild(headAnch);
     row.appendChild(head);
+    row.appendChild(regAddr);
     row.appendChild(access);
 
     let count = 0;
@@ -150,7 +166,7 @@ function buildRegMap(tableId, dev)
 
         if(resp.field != null)
         {
-          
+          resp.field.remaining = resp.field.remaining - resp.len;
           cell.classList.add("bit");
           cell.setAttribute("id", reg.name + "_bit_"+ (bit -1).toString());
           let fieldName = resp.field.name;
